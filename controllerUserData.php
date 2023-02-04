@@ -72,7 +72,6 @@ if(isset($_POST['signup'])){
             $errors['otp-error'] = "You've entered incorrect code!";
         }
     }
-
     //if user click login button
     if(isset($_POST['login'])){
         $email = mysqli_real_escape_string($con, $_POST['email']);
@@ -87,7 +86,6 @@ if(isset($_POST['signup'])){
                 $_SESSION['email'] = $email;
                 $status = $fetch['status'];
                 $row = $fetch['user'];
-             
                 if($status == 'verified'){
                   $_SESSION['email'] = $email;
                   $_SESSION['password'] = $password;
@@ -99,7 +97,6 @@ if(isset($_POST['signup'])){
                     header('location: Tdo.html');
                   else if($row == "ddo")
                     header('location: DDO.html');
-
                 }
                 else{
                     $info = "It's look like you haven't still verify your email - $email";
@@ -113,7 +110,6 @@ if(isset($_POST['signup'])){
             $errors['email'] = "It's look like you're not yet a member! Click on the bottom link to signup.";
         }
     }
-
     //if user click continue button in forgot password form
     if(isset($_POST['check-email'])){
         $email = mysqli_real_escape_string($con, $_POST['email']);
